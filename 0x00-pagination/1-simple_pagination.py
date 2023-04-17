@@ -26,7 +26,8 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """
+    Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -53,10 +54,10 @@ class Server:
         """
         assert type(page) is int and page > 0
         assert(page_size) is int and page_size > 0
-        ds = self.dataset()
-        length = len(ds)
+        dataset = self.dataset()
+        length = len(dataset)
         try:
             idx = index_range(page, page_size)
-            return ds[idx[0]:index[1]]
+            return dataset[idx[0]:index[1]]
         except IndexError:
             return []
