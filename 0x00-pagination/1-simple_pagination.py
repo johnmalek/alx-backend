@@ -4,7 +4,7 @@ A python function
 """
 import csv
 import math
-from typing import Tuple
+from typing import Tuple, List
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -56,7 +56,6 @@ class Server:
         assert type(page) is int and page > 0
         assert(page_size) is int and page_size > 0
         dataset = self.dataset()
-        length = len(dataset)
         try:
             idx = index_range(page, page_size)
             return dataset[idx[0]:idx[1]]
