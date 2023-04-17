@@ -59,6 +59,6 @@ class Server:
         length = len(dataset)
         try:
             idx = index_range(page, page_size)
-            return dataset[idx[0]:index[1]]
+            return dataset[idx[0]:idx[1]]
         except IndexError:
             return []
