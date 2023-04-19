@@ -24,7 +24,7 @@ class BasicCache(BaseCaching):
             return
         self.cache_data[key] = item
         return self.cache_data
-   
+
     def get(self, key):
         """
         A method that returns the value in self.cache_data lined to key

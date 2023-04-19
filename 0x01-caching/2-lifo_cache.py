@@ -5,7 +5,7 @@ A python class
 from base_caching import BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
     A class that inherits from base_cache and has methods
     """
@@ -18,16 +18,16 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """
-        Cache in FIFO order
+        Cache in LIFO order
         """
         if key is None or item is None:
             return
         else:
             length = len(self.cache_data)
             if length >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                print("DISCARD: {}".format(self.seq[0]))
-                del self.cache_data[self.seq[0]]
-                del self.seq[0]
+                print("DISCARD: {}".format(self.seq[-1]))
+                del self.cache_data[self.seq[-1]]
+                del self.seq[-1]
             self.seq.append(key)
             self.cache_data[key] = item
 
