@@ -28,7 +28,7 @@ def get_locale():
     return request.accept_language.best_match(app.config['LANGUAGES'])
 
 
-@app.route("/", strict_slashes=False)
+@app.route("/")
 def home() -> str:
     """
     handle / route
