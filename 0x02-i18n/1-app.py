@@ -4,7 +4,6 @@ A python flask app
 """
 from flask import Flask, render_template
 from babel_babel import Babel
-import pytz
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -15,11 +14,12 @@ class Config(babel):
     Configure babel for app
     """
     LANGUAGES = ["en", "fr"]
-    default_locale = "en"
-    default_timezone = "UTC"
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 @app.route("/")
+app.config.from_object(Config)
 def home():
     """
     handle / route
