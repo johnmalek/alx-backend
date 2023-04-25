@@ -3,7 +3,7 @@
 A python flask app
 """
 from flask import Flask, render_template
-from babel_babel import Babel
+from flask_babel import Babel
 
 
 class Config(object):
