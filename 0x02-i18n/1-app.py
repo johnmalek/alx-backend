@@ -5,11 +5,8 @@ A python flask app
 from flask import Flask, render_template
 from babel_babel import Babel
 
-app = Flask(__name__)
-babel = Babel(app)
 
-
-class Config(babel):
+class Config(object):
     """
     Configure babel for app
     """
@@ -18,8 +15,12 @@ class Config(babel):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-@app.route("/")
+app = Flask(__name__)
 app.config.from_object(Config)
+babel = Babel(app)
+
+
+@app.route("/")
 def home():
     """
     handle / route
