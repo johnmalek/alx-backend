@@ -20,8 +20,8 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@app.route("/")
-def home():
+@app.route("/", strict_slashes=False)
+def home() -> str:
     """
     handle / route
     """
