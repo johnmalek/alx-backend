@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A python module
+A python flask app
 """
 from flask import Flask, render_template
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     """
-    return home template
+    handle / route
     """
     return render_template("0-index.html")
 
